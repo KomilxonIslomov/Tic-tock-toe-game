@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="300dp"
+    android:layout_height="400dp">
+
+    <LinearLayout
+        android:id="@+id/lll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/dialog"
+        android:orientation="vertical"
+        android:padding="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="center"
+            android:text="Diqqat!\nIsmlaringizni kiriting:"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/player1_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:drawableEnd="@drawable/ic__x"
+            android:hint="Player 1        "
+            android:textColor="@color/black"
+            android:textCursorDrawable="@drawable/cursor"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+
+        <EditText
+            android:id="@+id/player2_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="50dp"
+            android:drawableEnd="@drawable/ic__0"
+            android:hint="Player 2        "
+            android:textColor="@color/black"
+            android:textCursorDrawable="@drawable/cursor"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/save"
+        android:orientation="horizontal"
+        android:text="Boshlamoq"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/lll"
+        app:layout_constraintEnd_toEndOf="@id/lll"
+        app:layout_constraintStart_toStartOf="@id/lll"
+        app:layout_constraintTop_toBottomOf="@+id/lll">
+
+
+    </Button>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
