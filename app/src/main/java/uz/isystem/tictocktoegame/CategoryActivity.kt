@@ -12,9 +12,12 @@ class CategoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivityCategoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         binding.friendsStart.setOnClickListener {
             intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+        binding.aiStart.setOnClickListener {
+            intent = Intent(this, AiActivity::class.java)
             startActivity(intent)
         }
 

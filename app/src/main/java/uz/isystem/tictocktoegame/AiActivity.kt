@@ -7,22 +7,22 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import uz.isystem.tictocktoegame.databinding.ActivityMainBinding
+import uz.isystem.tictocktoegame.databinding.ActivityAiBinding
+import kotlin.random.Random
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
-
+class AiActivity : AppCompatActivity(), View.OnClickListener {
     var player1 = 0
     var player2 = 1
     var ActivePlayer = player1
     lateinit var filtag: IntArray
-    private var _binding: ActivityMainBinding? = null
+    var gameActive: Boolean = true
+    lateinit var emptySquares: ArrayList<String>
+    private var _binding: ActivityAiBinding? = null
     private val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        _binding = ActivityMainBinding.inflate(layoutInflater)
+        _binding = ActivityAiBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        EditName()
 
         binding.exit.setOnClickListener {
             onBackPressed()
@@ -48,6 +48,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(p0: View?) {
         var buttonClicked = findViewById<TextView>(p0!!.id)
+        val randomValues = List(9) { Random.nextInt(1, 9) }
+
 //        var clickTag=Integer.parseInt(buttonClicked.tag.toString())
 //
 //        if (filtag[clickTag]!=-1)
@@ -60,16 +62,20 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             binding.player1.setBackgroundResource(R.drawable.shape2)
             binding.player2.setBackgroundResource(R.drawable.shape1)
         } else {
-            buttonClicked.text = "o"
-            buttonClicked.isEnabled = false
-            ActivePlayer = player1
-            binding.player2.setBackgroundResource(R.drawable.shape2)
-            binding.player1.setBackgroundResource(R.drawable.shape1)
+            if (binding.btn1.text.length == 0) {
+                binding.btn1.text = "o"
+                buttonClicked.isEnabled = false
+                ActivePlayer = player1
+                binding.player2.setBackgroundResource(R.drawable.shape2)
+                binding.player1.setBackgroundResource(R.drawable.shape1)
+            }
+
         }
         checkWin()
 
 
     }
+
 
     var a = 0
 
@@ -123,9 +129,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun showAlert(name1: String) {
-        val view = View.inflate(this@MainActivity, R.layout.dialog_view, null)
+        val view = View.inflate(this@AiActivity, R.layout.dialog_view, null)
 
-        val builder = AlertDialog.Builder(this@MainActivity)
+        val builder = AlertDialog.Builder(this@AiActivity)
         builder.setView(view)
 
         val dialog = builder.create()
@@ -168,9 +174,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun EditName() {
-        val view = View.inflate(this@MainActivity, R.layout.name_dialog, null)
+        val view = View.inflate(this@AiActivity, R.layout.name_dialog, null)
 
-        val builder = AlertDialog.Builder(this@MainActivity)
+        val builder = AlertDialog.Builder(this@AiActivity)
         builder.setView(view)
 
         val dialog = builder.create()
@@ -185,4 +191,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             dialog.dismiss()
         }
     }
+
+
 }
