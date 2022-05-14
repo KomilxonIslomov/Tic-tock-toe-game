@@ -2,6 +2,9 @@ package uz.isystem.tictocktoegame
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import uz.isystem.tictocktoegame.databinding.ActivityCategoryBinding
 
@@ -17,10 +20,25 @@ class CategoryActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.aiStart.setOnClickListener {
-            intent = Intent(this, AiActivity::class.java)
-            startActivity(intent)
+            showAlert()
         }
 
+
+    }
+
+    private fun showAlert() {
+        val view = View.inflate(this@CategoryActivity, R.layout.dialog_category, null)
+
+        val builder = AlertDialog.Builder(this@CategoryActivity)
+        builder.setView(view)
+
+        val dialog = builder.create()
+        dialog.show()
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        val exit = view.findViewById<TextView>(R.id.exit)
+        exit.setOnClickListener {
+            dialog.dismiss()
+        }
 
     }
 }

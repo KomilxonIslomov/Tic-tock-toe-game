@@ -56,6 +56,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         if (ActivePlayer == player1) {
             buttonClicked.text = "x"
             buttonClicked.isEnabled = false
+            buttonClicked.setBackgroundResource(R.drawable.x_back)
             ActivePlayer = player2
             binding.player1.setBackgroundResource(R.drawable.shape2)
             binding.player2.setBackgroundResource(R.drawable.shape1)
@@ -63,6 +64,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             buttonClicked.text = "o"
             buttonClicked.isEnabled = false
             ActivePlayer = player1
+            buttonClicked.setBackgroundResource(R.drawable.o_back)
             binding.player2.setBackgroundResource(R.drawable.shape2)
             binding.player1.setBackgroundResource(R.drawable.shape1)
         }
@@ -138,6 +140,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         restart.setOnClickListener {
             dialog.dismiss()
+            a = 0
             ActivePlayer = player1
             binding.btn1.text = ""
             binding.btn2.text = ""
@@ -148,6 +151,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             binding.btn7.text = ""
             binding.btn8.text = ""
             binding.btn9.text = ""
+            binding.btn1.setBackgroundResource(R.drawable.shape)
+            binding.btn2.setBackgroundResource(R.drawable.shape)
+            binding.btn3.setBackgroundResource(R.drawable.shape)
+            binding.btn4.setBackgroundResource(R.drawable.shape)
+            binding.btn5.setBackgroundResource(R.drawable.shape)
+            binding.btn6.setBackgroundResource(R.drawable.shape)
+            binding.btn7.setBackgroundResource(R.drawable.shape)
+            binding.btn8.setBackgroundResource(R.drawable.shape)
+            binding.btn9.setBackgroundResource(R.drawable.shape)
+
             binding.btn1.isEnabled = true
             binding.btn2.isEnabled = true
             binding.btn3.isEnabled = true
